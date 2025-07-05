@@ -1,0 +1,24 @@
+---=========================================================---
+---------------DATA BASE EXPLORATION---------------------------
+---=========================================================---
+
+--- EXPLORING ALL OBJECTS IN THE DATA_BASE
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'VIEW'
+--WHERE TABLE_SCHEMA = 'gold'
+
+---EXPLORING ALL COLUMNS OF THE OBJECTS
+
+SELECT  *
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_SCHEMA = 'gold'
+
+--HOW MANY COLUMNS PRESENT IN EACH GOLD TABLE
+
+SELECT  
+	TABLE_NAME,
+	COUNT(*) columns_count
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_SCHEMA = 'gold'
+GROUP BY TABLE_NAME
