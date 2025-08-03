@@ -4,7 +4,9 @@
 -----Formula used :- MAX(),MIN(),DATEDIFF(),YEAR(),MONTH()---
 ---=========================================================---
 
+------------------------------------------------------
 --find the date of the first order and the last order
+------------------------------------------------------
 
 SELECT 
 
@@ -16,7 +18,9 @@ SELECT
 
 FROM gold.fact_sales
 
+-----------------------------------------------------
 --Find the youngest and the oldest  age customers
+-----------------------------------------------------
 SELECT 
 	MIN(customer_age) lowest_age,
 	MAX(customer_age) highest_age
