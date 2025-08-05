@@ -83,39 +83,40 @@ WITH base_query AS (
    3.KPI's(Key Performnce Indicators) Of Customers
 --------------------------------------------------------------------------------------------*/
 SELECT  
-	customer_key,
+	customer_key, 
 	customer_number,
 	customer_name,
 	age,
 
 	---Segmented based on customer_age
 	CASE WHEN age BETWEEN 30 AND 50 THEN '30-50'
-		 WHEN age BETWEEN 50 AND 80 THEN '50-80'WHEN age BETWEEN 39 AND 50 THEN '39-50'
-		 WHEN age >80 THEN 'above 80'
+	     WHEN age BETWEEN 50 AND 80 THEN '50-80'WHEN age BETWEEN 39 AND 50 THEN '39-50'
+	     WHEN age >80 THEN 'above 80'
 	END age_segment,
 
 	---Segmented based on the lifespan and total_sales
 	CASE WHEN life_span >= 12 AND total_sales > 5000 then 'VIP'
-			 WHEN life_span >= 12 AND total_sales < 5000 then 'Regular'
-			 WHEN life_span < 12 THEN 'NEW'
-		END customer_segment,
+	     WHEN life_span >= 12 AND total_sales < 5000 then 'Regular'
+	     WHEN life_span < 12 THEN 'NEW'
+	END customer_segment,
 
 	total_orders,
 	total_sales,
 	total_quantity,
 	total_products,
 	life_span,
+	
 	---Racency of the customer
 	DATEDIFF(month,last_order_date,GETDATE()) racency,
 
 	---AVO(Average Order Value)
 	CASE WHEN total_orders = 0 THEN 0
-			  ELSE total_sales/total_orders 
+	     ELSE total_sales/total_orders 
 	END avg_order_value,
 
 	---Average Monthly Value(AMV)
 	CASE WHEN life_span = 0 THEN total_sales
-			  ELSE total_sales/life_span
+	     ELSE total_sales/life_span
 	END avg_monthly_value
 
 FROM customer_aggregations
