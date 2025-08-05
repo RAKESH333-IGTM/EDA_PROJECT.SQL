@@ -30,7 +30,7 @@ FROM gold.dim_customers
 UNION ALL
 
 SELECT
-	'TotalProducts' AS measure_name ,COUNT(product_key) product_count
+	'TotalProducts' AS measure_name ,COUNT(product_key) AS product_count
 	--COUNT(product_key) product_count
 FROM gold.dim_products
 
