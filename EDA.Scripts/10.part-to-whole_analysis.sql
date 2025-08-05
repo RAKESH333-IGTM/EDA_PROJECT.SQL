@@ -4,7 +4,10 @@
 ---Analysed through measure/total measure * 100 by dimension---
 ---===================================================---
 
---Which categories contribute the most to over all sales?
+------------------------------------------------------------
+---Which categories contribute the most to over all sales---
+------------------------------------------------------------
+
 WITH category_sales AS (
 	SELECT
 			p.category,
