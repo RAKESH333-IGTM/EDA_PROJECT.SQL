@@ -7,7 +7,7 @@
             -- This report consolidates the key metrics and behaviour of the Products.
 Highlights :-
 
-    1. Gathers essential information like product_name, category, subcategory and cost.
+        1. Gathers essential information like product_name, category, subcategory and cost.
 	2. Segments products by revenue to identify high performers, mid-range or low performers.
 	
 	3. Aggregates product level metrics:-
@@ -101,8 +101,8 @@ SELECT
 
 	---Segmented based on the revenue
 	CASE WHEN total_sales > 100000 THEN 'High-performers'
-		 WHEN total_sales BETWEEN  50000 AND 100000 THEN 'Mid-range'
-		 ELSE 'Low-performers'
+	     WHEN total_sales BETWEEN  50000 AND 100000 THEN 'Mid-range'
+	     ELSE 'Low-performers'
 	END sales_segment,
 
 	---reacency of customers in months
@@ -110,12 +110,12 @@ SELECT
 
 	---AOR(average order revenue)
 	CASE WHEN total_orders = 0 THEN 0
-		 ELSE total_sales/total_orders 
+	     ELSE total_sales/total_orders 
 	END avg_order_revenue,
 
 	--AMR(average monthly revenue)
 	CASE WHEN life_span = 0 THEN total_sales
-		  ELSE total_sales/life_span
+	     ELSE total_sales/life_span
 	END avg_monthly_revenue
 
 FROM product_aggregations
